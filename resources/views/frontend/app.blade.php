@@ -136,9 +136,8 @@
                     <p class="mb-4">Please follow us via the link below</p>
                     <ul class="list-unstyled custom-social">
                         <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                        <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
                         <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-                        <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+                        <li><a href="#"><span class="fa fa-brands fa-youtube"></span></a></li>
                     </ul>
                 </div>
 
@@ -147,6 +146,7 @@
                         <div class="col-6 col-sm-6 col-md-3">
                             <ul class="list-unstyled">
                                 <li><a href="#">Kontak</a></li>
+                                <li><a href="#">Pusat Bantuan</a></li>
                             </ul>
                         </div>
 

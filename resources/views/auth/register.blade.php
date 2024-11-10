@@ -8,112 +8,165 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Register</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            border-radius: 10px;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 10px;
+        }
+
+        .btn-primary {
+            background-color: #a0a98e;
+            border-color: #a0a98e;
+        }
+
+        .btn-primary:hover {
+            background-color: #899079;
+            border-color: #899079;
+        }
+
+        .btn-primary:active {
+            background-color: #6f7561 !important;
+            border-color: #6f7561 !important;
+        }
+
+        .text-center a {
+            color: #a0a98e;
+            text-decoration: none;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px;">
-            <h2 class="text-center mb-3">Create Account</h2>
+        <div class="card p-4 shadow" style="width: 100%; max-width: 720px;">
+            <h2 class="text-center mb-4">Create Account</h2>
 
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <!-- Name -->
-                <div class="mb-3">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                        required>
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name"
+                                class="form-control @error('name') is-invalid @enderror" required>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" id="username"
+                                class="form-control @error('username') is-invalid @enderror" name="username"
+                                value="{{ old('username') }}" required autofocus>
+                            @error('username')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email"
+                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select id="gender" class="form-select @error('gender') is-invalid @enderror"
+                                name="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+                                <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                            </select>
+                            @error('gender')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-md-6">
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password" required>
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <!-- Retype Password -->
+                        <div class="mb-3">
+                            <label for="password-confirm" class="form-label">Retype Password</label>
+                            <input type="password" id="password-confirm" class="form-control"
+                                name="password_confirmation" required>
+                        </div>
+
+                        <!-- Date of Birth -->
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <input type="date" id="dob" class="form-control @error('dob') is-invalid @enderror"
+                                name="date_of_birth" value="{{ old('date_of_birth') }}" required>
+                            @error('dob')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <!-- Address -->
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" id="address"
+                                class="form-control @error('address') is-invalid @enderror" name="address"
+                                value="{{ old('address') }}" required>
+                            @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Username -->
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror"
-                        name="username" value="{{ old('username') }}" required autofocus>
-                    @error('username')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <!-- Password -->
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror"
-                        name="password" required>
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <!-- Retype Password -->
-                <div class="mb-3">
-                    <label for="password-confirm" class="form-label">Retype Password</label>
-                    <input type="password" id="password-confirm" class="form-control" name="password_confirmation"
-                        required>
-                </div>
-
-                <!-- Email -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror"
-                        name="email" value="{{ old('email') }}" required>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <!-- Date of Birth -->
-                <div class="mb-3">
-                    <label for="dob" class="form-label">Date of Birth</label>
-                    <input type="date" id="dob" class="form-control @error('dob') is-invalid @enderror"
-                        name="date_of_birth" value="{{ old('date_of_birth') }}" required>
-                    @error('dob')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <!-- Gender -->
-                <div class="mb-3">
-                    <label for="gender" class="form-label">Gender</label>
-                    <select id="gender" class="form-select @error('gender') is-invalid @enderror" name="gender"
-                        required>
-                        <option value="" disabled selected>Select Gender</option>
-                        <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
-                        <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
-                    </select>
-                    @error('gender')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <!-- Address -->
-                <div class="mb-3">
-                    <label for="address" class="form-label">Address</label>
-                    <input type="text" id="address" class="form-control @error('address') is-invalid @enderror"
-                        name="address" value="{{ old('address') }}" required>
-                    @error('address')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <!-- City -->
+                <!-- City (Single Row) -->
                 <div class="mb-3">
                     <label for="city" class="form-label">City</label>
                     <input type="text" id="city" class="form-control @error('city') is-invalid @enderror"
@@ -125,6 +178,7 @@
                     @enderror
                 </div>
 
+                <!-- Submit Button -->
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">Register</button>
                 </div>

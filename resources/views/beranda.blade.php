@@ -80,7 +80,7 @@
 
     <!-- Start Why Choose Us Section -->
     <div class="why-choose-section position-relative"
-        style="background: url('{{ asset('frontend/images/apotek-4.jpg') }}') center center/cover no-repeat; padding: 80px 0;">
+        style="background: url('{{ asset('frontend/images/rs1.jpg') }}') center center/cover no-repeat; padding: 80px 0;">
         <div class="overlay"
             style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.8);"></div>
         <div class="container position-relative" style="z-index: 2;">

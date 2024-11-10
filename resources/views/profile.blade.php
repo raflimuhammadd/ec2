@@ -19,8 +19,8 @@
                                     <h4>{{ $user->name }}</h4>
 
                                     <br>
-                                    <button class="btn btn-primary">Follow</button>
-                                    <button class="btn btn-outline-primary">Message</button>
+                                    {{-- <button class="btn btn-primary">Follow</button> --}}
+                                    {{-- <button class="btn btn-outline-primary">Message</button> --}}
                                 </div>
                             </div>
                             @if (Route::has('login'))

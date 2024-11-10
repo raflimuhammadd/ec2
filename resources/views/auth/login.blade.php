@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary"=>Login</button>
                 </div>
 
                 @if (Route::has('password.request'))
@@ -66,6 +66,25 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <style>
+        .btn-primary {
+            background-color: #a0a98e;
+            border-color: #a0a98e;
+        }
+
+        .btn-primary:hover {
+            background-color: #899079;
+            border-color: #899079;
+        }
+
+        .btn-primary:active {
+            background-color: #6f7561 !important;
+            border-color: #6f7561 !important;
+        }
+    </style>
 </body>
 
 </html>
